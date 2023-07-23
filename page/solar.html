@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTE-8" />
+    <title>Solar System</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- background -->
+      <img class="background" src="../src/space.png" />
+      <!-- modal -->
+      <div id="script" class="mod"></div>
+      <!-- sun -->
+      <div
+        class="pos-abs"
+        style="inset-inline-start: 100px; inset-block-start: 100px"
+        onclick="showInfo()"
+      >
+        <canvas id="sun" width="500" height="500"></canvas>
+      </div>
+      <!-- earth -->
+      <div
+        class="pos-abs"
+        style="inset-inline-start: 100px; inset-block-start: 700px"
+        onclick="showInfo()"
+      >
+        <canvas id="earth" width="500" height="500"></canvas>
+      </div>
+    </div>
+  </body>
+  <script>
+    function showInfo() {
+      let stat = document.getElementById("script").style.opacity;
+      console.log(stat);
+      stat == 0
+        ? (document.getElementById("script").style.opacity = 1)
+        : (document.getElementById("script").style.opacity = 0);
+    }
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+        "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import { GLTFLoader } from "GLTFLoader";
+    import * as THREE from "three";
+
+    // sun
+    let sun_scene = new THREE.Scene();
+    let sun_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#sun"),
+      antialias: true,
+      alpha: true,
+    });
+    sun_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let sun_cam = new THREE.PerspectiveCamera(30, 1);
+    sun_cam.position.set(0, 0, 40);
+
+    let load_sun = new GLTFLoader();
+    load_sun.load("../src/sun/scene.gltf", function (gltf) {
+      sun_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.003;
+        sun_renderer.render(sun_scene, sun_cam);
+      }
+      animate();
+    });
+
+    // earth
+    let earth_scene = new THREE.Scene();
+    let earth_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#earth"),
+      antialias: true,
+      alpha: true,
+    });
+    earth_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let earth_cam = new THREE.PerspectiveCamera(30, 1);
+    earth_cam.position.set(0, 0, 50);
+    earth_cam.rotation.set(0, 0, 0.2);
+
+    let hemisphereLight_earth = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      5
+    );
+    earth_scene.add(hemisphereLight_earth);
+
+    let earth_load = new GLTFLoader();
+    earth_load.load("../src/earth/scene.gltf", function (gltf) {
+      earth_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        earth_renderer.render(earth_scene, earth_cam);
+      }
+      animate();
+    });
+  </script>
+
+  <style>
+    .pos-abs {
+      position: absolute;
+      background-color: #00000000;
+      cursor: pointer;
+    }
+    .background {
+      position: fixed;
+      inline-size: 100vw;
+      block-size: 100vh;
+    }
+    .mod {
+      position: absolute;
+      z-index: 100;
+      left: calc(50% - 30vw);
+      width: 60vw;
+      height: 100vh;
+      background-color: tomato;
+      border-radius: 30px;
+      transition: all 0.2s ease-in-out;
+      opacity: 1;
+    }
+  </style>
+</html>

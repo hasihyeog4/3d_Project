@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTE-8" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img src="./src/logo/galaxy.png" class="title-icon" />
+      universe
+    </div>
+    <iframe src="./page/solar.html" class="content"></iframe>
+  </body>
+  <style>
+    .header {
+      position: fixed;
+      z-index: 2;
+      inline-size: 100%;
+      block-size: 60px;
+      background: linear-gradient(#111169, rgb(0, 0, 0));
+      padding-inline-start: 16px;
+      padding-block-start: 8px;
+      color: #ffffff;
+      font-size: 26px;
+    }
+    .title-icon {
+      inline-size: 20px;
+      block-size: 20px;
+    }
+    .content {
+      position: absolute;
+      inset-block-start: 60px;
+      margin: 0;
+      padding: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      overflow-y: scroll;
+    }
+  </style>
+</html>
