@@ -11,33 +11,242 @@
       <!-- background -->
       <img class="background" src="../src/space.png" />
       <!-- modal -->
-      <div id="script" class="mod"></div>
+      <div id="script" class="mod pa-5">
+        <h1 id="card_title"></h1>
+        <div id="context"></div>
+      </div>
       <!-- sun -->
       <div
         class="pos-abs"
-        style="inset-inline-start: 100px; inset-block-start: 100px"
-        onclick="showInfo()"
+        style="top: 390px; left: 100px"
+        onclick="showInfo(); desc_sun()"
       >
-        <canvas id="sun" width="500" height="500"></canvas>
+        <canvas id="sun" width="100" height="100  "></canvas>
       </div>
       <!-- earth -->
       <div
         class="pos-abs"
-        style="inset-inline-start: 100px; inset-block-start: 700px"
-        onclick="showInfo()"
+        style="top: 390px; left: 650px"
+        onclick="showInfo(); desc_earth()"
       >
-        <canvas id="earth" width="500" height="500"></canvas>
+        <canvas id="earth" width="100" height="100"></canvas>
+      </div>
+      <!--mercurio-->
+      <div
+        class="pos-abs"
+        style="top: 390px; left: 250px"
+        onclick="showInfo(); desc_mercurio()"
+      >
+        <canvas id="mercurio" width="100" height="100"></canvas>
+      </div>
+      <!--venus-->
+      <div
+        class="pos-abs"
+        style="top: 390px; left: 450px"
+        onclick="showInfo();desc_venus()"
+      >
+        <canvas id="venus" width="100" height="100"></canvas>
+      </div>
+      <!--moon-->
+      <div
+        class="pos-abs"
+        style="top: 470px; left: 750px"
+        onclick="showInfo(); desc_moon()"
+      >
+        <canvas id="moon" width="50" height="50"></canvas>
+      </div>
+      <!--mars-->
+      <div
+        class="pos-abs"
+        style="top: 320px; left: 770px"
+        onclick="showInfo(); desc_mars()"
+      >
+        <canvas id="mars" width="250" height="250"></canvas>
+      </div>
+      <!--jupiter-->
+      <div
+        class="pos-abs"
+        style="top: 300px; left: 950px"
+        onclick="showInfo(); desc_jupiter()"
+      >
+        <canvas id="jupiter" width="300" height="300"></canvas>
+      </div>
+      <!--saturn-->
+      <div
+        class="pos-abs"
+        style="top: 340px; left: 1250px"
+        onclick="showInfo(); desc_saturn()"
+      >
+        <canvas id="saturn" width="240" height="240"></canvas>
+      </div>
+      <!--uranus-->
+      <div
+        class="pos-abs"
+        style="top: 340px; left: 1520px"
+        onclick="showInfo(); desc_uranus()"
+      >
+        <canvas id="uranus" width="260" height="260"></canvas>
+      </div>
+      <!--neptune-->
+      <div
+        class="pos-abs"
+        style="top: 340px; left: 1750px"
+        onclick="showInfo(); desc_neptune()"
+      >
+        <canvas id="neptune" width="260" height="260"></canvas>
       </div>
     </div>
   </body>
   <script>
     function showInfo() {
-      let stat = document.getElementById("script").style.opacity;
-      console.log(stat);
-      stat == 0
-        ? (document.getElementById("script").style.opacity = 1)
-        : (document.getElementById("script").style.opacity = 0);
+      let stat = document.getElementById("script").style;
+      // stat.opacity == 0
+      //   ? (document.getElementById("script").style.opacity = 1)
+      //   : (document.getElementById("script").style.opacity = 0);
+
+      stat.display == "none"
+        ? (document.getElementById("script").style.display = "block")
+        : (document.getElementById("script").style.display = "none");
     }
+
+    function desc_sun() {
+      document.getElementById("card_title").innerText = "태양";
+      document.getElementById("context").innerText = `(구조)
+태양의 표면온도는 5778K이며, 분광형 G2인 주계열성이다. 태양은 우주의 별들 중 질량상으로 1%안에 드는 엘리트 별이다. 우주의 90%에 해당하는 별 대부분은 적색왜성이다. 중원소 함유량은 태양 전체 질량 1.69%로 중원소가 풍부한 종족 I의 항성이며 3세대 항성에 속한다.
+(광구)
+수소와 헬륨으로 구성되어 있으며, 핵융합 반응으로 특수 상대성 이론에 따라 에너지를 뿜어내며, 이 과정에서 나오는 에너지의 양은 3.846×1026 W에 달한다! 덤으로 이 과정에서 발생하는 외부로 나가는 압력이 태양의 중력과 평형 상태를 이루어 그 크기와 모양을 유지한다.`;
+    }
+    function desc_mercurio() {
+      document.getElementById("card_title").innerText = "수성";
+      document.getElementById("context").innerText = `(내부구조)
+지구형 행성답게 표면은 암석으로 이루어져 있다. 질량 70%가 금속, 나머지 30%는 규산염 물질로 이루어져 있을 것으로 추정된다. 또한 행성 크기에 비해서 핵 비율이 상당히 큰 편에 속한다.
+(물리량)
+태양과 떨어진 거리:약 5790만 9050km
+공전 주기:87.97일
+자전 주기:58.646일
+질량:3 * 10^23kg
+밀도:5.430Mg/m³
+부피 :55.25Mm^3
+`;
+    }
+    function desc_earth() {
+      document.getElementById("card_title").innerText = "지구";
+      document.getElementById("context").innerText = `(구조)
+지구 구조는 지각, 맨틀, 외핵과 내핵이다. 중심온도는 6700도 되므로 굉장히 뜨거운데 이는 지구 자체 질량이 워낙 무거우므로 자신의 질량으로 인한 압력으로 인해 스스로 열이 생산되기 때문이다. 참고로 지구 내부에서 생산되는 에너지는 시간당 442억Kw인데, 방사성 동위 원소가 생산하는 열량은 210억kW/h이며, 지구 자신의 질량으로 인한 압력으로 스스로 생산되는 열은 232억kW이다.
+
+지구는 자신의 질량 덕분에 내부 열을 안정되게 유지할 수 있다. 태양계의 암석형인 수성, 화성은 질량이 적어 내부열을 안정되게 유지할 수 없어 불안정한 지질활동과 죽은 행성들이 생성되었다. 참고로 지구도 현재보다 3.5%만 질량이 부족했어도 가까운 미래에 죽은 행성이 될 뻔했지만 다행히 질량이 충분하여 지금도 안정된 지질활동을 하고 있으며, 앞으로도 안정된 지질활동과 안정한 자기장을 형성할 수 있게 되었다.
+(특징)
+지구의 경우 암석행성답게 꽤나 밀도가 높은 편에 속하는 행성이다. 전체적인 구성은 규산염으로 이루어져 있으나 내부의 핵은 철이나 니켈과 같은 무거운 철질원소들로 구성되어 있을 것으로 추정된다.`;
+    }
+    function desc_moon() {
+      document.getElementById("card_title").innerText = "달";
+      document.getElementById("context").innerText = `(특징)
+조석 현상으로 공전주기와 자전주기가 일치하기 때문에 지구에서 보이는 부분이 언제나 똑같다. 그러므로, 달은 지구의 한쪽 방향만을 바라보기 때문에, 월면 뒤는 지구에서는 확인할 수가 없다. 이를 조석 마찰 또는 조석 고정이라 하는데, 시간이 오래 지나게 되면 달에서도 지구를 한쪽 방향으로만 볼 수 있게 된다. 즉, 지구의 반쪽은 항상 달을 볼 수 있고, 다른 한 쪽은 달을 전혀 볼 수 없다.
+(위상 변화)
+달은 다양한 모습으로 변해 보름달, 그믐달 등으로 불리는 모양이 나오기도 한다.`;
+    }
+    function desc_venus() {
+      document.getElementById("card_title").innerText = "금성";
+      document.getElementById("context").innerText = `(지질 특징)
+초창기 태양 광도가 73%밖에 되지 않던 43억년전에도 이미 금성은 굉장히 뜨거웠다. 금성은 지구가 받는 태양빛보다 1.91배 센 태양빛을 받기 때문이다.
+
+또한 질량은 지구의 81.5%밖에 되지 않으므로 20억년전에는 안정적인 자기장 활동이, 지질활동은 10억년전에 중단되고 말았다. 지질활도이 중단되자 지각이 두꺼워져 내부에 열이 빠져나가지 않게 되자 열은 계속 쌓이고 종국엔 맨틀 열이 지각을 녹여버리는 사태가 발생한다. 금성은 6억년전에 한번 지각이 갈아졌으며, 1억년전에도 한번 더 지각이 갈아졌다. 1억년전 금성은 뜨거운 맨틀 열이 지각 외피까지 올라오자 통째로 녹아 용암바다 형태로 되어 버렸다. 이러한 용암바다 형태는 엄청난 온실기체를 발생시키고 금성 대기가 지구 90배나 되는 엄청난 대기를 발생시켰다. 금성의 용암바다는 한참 동안이나 끓다가 5천만년전에야 굳게 되었고 엄청나게 거대한 화산들을 생성시켰다.
+
+하지만 지금은 이 거대한 화산들이 침식되어 면적은 넓지만 높이는 낮아진 기형적인 모습을 띠고 있다.
+(물리량)
+태양과 떨어진 거리:약 1억 810만 km
+공전 주기:224일
+자전 주기:584일
+질량:4.868 * 10^24kg
+밀도:5.24mg * meter^-3
+부피 :928.3Mm^3`;
+    }
+    function desc_mars() {
+      document.getElementById("card_title").innerText = "화성";
+      document.getElementById("context").innerText = `(설명)
+화성(火星, Mars)은 태양에서 네 번째로 가까운 행성(거리:2억 2,500만 km)이다. 이는 1.52AU에 해당한다.
+
+지구에 비교적 가까운 물리적 특성으로 외계 생명체 존재의 주요 떡밥이었고 현재도 태양계의 행성 중 테라포밍하기 그나마 편한 편이기 때문에 우주 진출에서 달과 함께 손꼽히는 대상이다(표면 평균 온도는 -64도로 좀 낮지만 사람은 버틸 수 있을 정도) 그리고 1년은 687일 정도로 지구의 2년과 비슷하다.
+
+2015년 9월 28일, NASA에서 "화성 표면에 간헐적으로 액체 상태의 소금물 개천이 흐른다는 결정적인 증거를 발견했다"는 공식 발표를 했다.
+(구조)
+지각, 맨틀, 중심핵으로 구성되어 있다.
+
+지각 두께는 50km이며,(지구는 35km이다) 맨틀은 지하 50km~1500km(지구는 2,960km인데... 얇다)까지 존재한다. 중심핵은 주로 철, 황, 니켈 등으로 이루어져 있으며 1500km 이하의 깊이부터 중심부까지다(지구의 외핵, 내핵을 합하면 2,500km 정도이다).
+
+중심부 온도는 3500도(지구는 6700도)이며, 중심부는 녹아 있지만 압력에 비해 충분히 덜 뜨거워서 안정된 대류를 못 하고 있으며, 이로 인해 자기장이 형성되지 못하고 있다.
+
+참고로 지구는 핵이 외핵과 내핵으로 나뉘어 있다. 그래도 그 둘을 합하면 화성 지름 3분의 1 정도다.
+(위성)
+포보스와 데이모스라는 작은 위성 두 개를 가지고 있다.`;
+    }
+    function desc_jupiter() {
+      document.getElementById("card_title").innerText = "목성";
+      document.getElementById("context").innerText = `(설명)
+태양에서 5번째로 가까운 행성으로 태양계에서 가장 큰 행성이다. 지구의 관측자 시점에서 바라보면 밤 하늘에서 달과 금성을 제외하면 가장 밝게 보이는 천체이다. 전체적인 구성은 수소와 헬륨으로 이루어진 가스 행성으로 알려져 있으며 중심부에 자리한 핵의 경우 금속성 수소가 자리하고 있을 것으로 알려져 있다.
+(특징)
+이곳 역시 생지옥이다.일단 근처만 가도 수만 시버트에 달하는 방사능이 너님을 맞이할 것이며 표면에는 아메리카 대륙만한 폭풍이 휘젓고 지나간다.
+
+농담이 아니라 파이오니어 10호가 저길 그냥 깡으로 뚫고 갔는데 망가지지 않은 것만 해도 운이 좋았다고 한다.
+(고리)
+목성은 육안(광학망원경 포함)으로는 관측이 불가능한 희미한 고리를 셋 가지고 있다. 토성의 고리에 비하면 목성의 고리는 거의 없는 수준이라 할 정도로 희미한 수준인데 이는 토성의 고리가 얼음 입자들로 이루어져 비교적 크기가 크고 빛의 반사율이 높은데 비해 목성은 작은 먼지나 파편들이 모여 이루어진 것이어서 상대적으로 관측이 어렵기 때문으로 추정되고 있다.`;
+    }
+    function desc_saturn() {
+      document.getElementById("card_title").innerText = "토성";
+      document.getElementById("context").innerText = `(설명)
+태양에서 여섯 번째로 가까운 행성으로 태양계 행성 중 두 번째로 크다.
+(구조)
+내부 구조
+대기: 수소와 헬륨으로 된 대기가 있다. 이외에 암모니아, 에테인, 메테인 등의 성분도 있는 것으로 알려졌다.
+고리: 토성 하면 가장 먼저 떠오르는 것이 바로 고리이다. 고리는 얼음과 암석이 섞인 덩어리로 되어 있으며, 하나처럼 보이지만 사실은 여러 개가 나란히 늘어서 있다.
+(위성)
+목성보다는 적지만 위성이 매우 많다.
+
+타이탄은 명색이 행성인 수성보다도 크고, 따라서 메테인이 포함된 대기까지 있다.[2]
+
+이아페투스는 2012년 우주선 카시니호가 찍은 사진으로 표면이 관찰되었다. 강력한 화산 활동 없이 고요한 흑백의 대비만 관찰되고, 표면은 남쪽의 거대한 분화구가 특징으로 분화구와 주름처럼 보이는 산맥으로 덮여 있다.
+(특징)
+목성형 행성답게 크기와 비교하면 밀도가 매우 낮다. 토성은 그 정도가 좀 더 심해서 밀도가 약 0.6873g/cm³ 밖에 안 된다. 이게 무슨 얘기냐면, 충분히 너른 물에 토성을 빠뜨리면 동동 떠다닌다는 것이다. 토성을 의인화할 때 챙이 넓은 모자를 쓴 모습 말고 튜브를 두른 모습으로 그리기도 하는데, 바로 이 특성에 주목한 것이다.
+
+태양계에서 제일 납작한 행성이기도 하다. 행성은 빨리 자전할수록 원심력이 크게 작용해서 적도 쪽이 납작한 타원에 가까워진다. 이 납작한 정도를 편평도라 하는데, 토성의 편평도 0.096을 지구의 편평도 0.003과 비교해 보면 토성이 얼마나 납작한지 알 수 있다. 자전 속도는 목성이 가장 빠름에도 토성이 밀도가 더 낮아서 많이 찌그러지는 것이므로, 이것도 따지고 보면 밀도 탓이라 할 수 있다.`;
+    }
+    function desc_uranus() {
+      document.getElementById("card_title").innerText = "천왕성";
+      document.getElementById("context").innerText = `(설명)
+태양계의 일곱 번째 행성이다. 잘 보이지 않지만 토성처럼 고리를 가지고 있다.적어도 목성보다는 잘보인다.. 몇 개는 안보이지만 모두 13개다.
+(구조)
+대기는 79.7%가 수소, 그 중 20.3%는 헬륨.나머지 2%는 메탄이다.
+
+멘틀은 물과 메탄,암모니아의 얼음이다.목성형 행성인데 멘틀이 고체다.....
+
+핵은 얼음과 광물이 뒤섞인 고체 혼합물이다.
+(위성)
+27개가 있으며, 모두 천왕성의 자전축과 같이 세로로 공전한다.
+
+그리고 가장 큰 티타니아는 지름이 1570km로 아마 태양계에서 8번째로 큰 위성이다.
+
+참고로 위성의 이름은 윌리엄 셰익스피어의 소설 등장인물의 이름에서 유래하였다고 한다.
+(특징)
+자전축의 기울기가 98도라서 옆으로 누워 있는 형태이다. 그래서 천왕성의 극지방에서 사는 외계인이 있다면 1년의 반은 낮이고 나머지 반은 밤이라서 1년을 하루처럼 느끼게 된다.
+
+대기가 해왕성보다도 차갑다고 한다. 그리고 옆으로 누워 있어서 공전주기의 절반인 42년 마다 에너지가 모여서 강한 폭풍이 발생한다.`;
+    }
+    function desc_neptune() {
+      document.getElementById("card_title").innerText = "해왕성";
+      document.getElementById("context").innerText = `(설명)
+태양에서 8번째 행성이며 명왕성이 행성 지위를 박탈당하면서 태양에서 가장 먼 행성이 되었다.
+(구조)
+대기성분의 대부분이 수소와 헬륨, 메탄으로 구성되어 있다.
+
+희미하긴 하지만 고리가 존재한다. 모두 9개.
+(위성)
+위성의 대부분이 그리스 신화의 바다에 관련된 신이나 요정의 이름이 붙었다. 트리톤, 네레이드, 갈라테아 등등 모두 13개.
+
+그 중 트리톤은 지름이 2700km로 압도적이다. 질량도 2.14*10^22kg로 육중한 편. 그리고 태양계에서 7번째로 큰 위성인데 해왕성의 주위를 역행 공전한다.(자전 방향과 반대로 돈다는 뜻.)
+(특징)
+공전주기가 165년으로 매우 길어 2011년 7월 12일이 되어서야 해왕성 발견 이후 처음으로 한바퀴를 돌았다.[1] 푸른빛의 행성이며,대흑점이 있다.풍속이 태양계에서 가장 크다.`;
+    }
+    // sun
   </script>
   <script type="importmap">
     {
@@ -51,7 +260,6 @@
     import { GLTFLoader } from "GLTFLoader";
     import * as THREE from "three";
 
-    // sun
     let sun_scene = new THREE.Scene();
     let sun_renderer = new THREE.WebGLRenderer({
       canvas: document.querySelector("#sun"),
@@ -73,7 +281,6 @@
       }
       animate();
     });
-
     // earth
     let earth_scene = new THREE.Scene();
     let earth_renderer = new THREE.WebGLRenderer({
@@ -104,8 +311,247 @@
       }
       animate();
     });
-  </script>
+    // mercurio
+    let mer_scene = new THREE.Scene();
+    let mer_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#mercurio"),
+      antialias: true,
+      alpha: true,
+    });
+    mer_renderer.outputEncoding = THREE.sRGBEncoding;
 
+    let mer_camera = new THREE.PerspectiveCamera(23, 1);
+    mer_camera.position.set(0, 0, 800);
+    mer_camera.rotation.set(0, 0, 0.2);
+
+    let hemisphereLight_p = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      1.2
+    );
+    mer_scene.add(hemisphereLight_p);
+
+    let mer_loader = new GLTFLoader();
+    mer_loader.load("../src/mercurio/scene.gltf", function (gltf) {
+      mer_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        mer_renderer.render(mer_scene, mer_camera);
+      }
+      animate();
+    });
+    //venus
+    let ven_scene = new THREE.Scene();
+    let ven_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#venus"),
+      antialias: true,
+      alpha: true,
+    });
+    ven_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let ven_camera = new THREE.PerspectiveCamera(30, 1);
+    ven_camera.position.set(0, 0, 5);
+    ven_camera.rotation.set(0, 0, 0.2);
+
+    let hemisphereLight_venus = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      5
+    );
+    ven_scene.add(hemisphereLight_venus);
+
+    let ven_loader = new GLTFLoader();
+    ven_loader.load("../src/venus/scene.gltf", function (gltf) {
+      ven_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        ven_renderer.render(ven_scene, ven_camera);
+      }
+      animate();
+    });
+    //moon
+    let scene = new THREE.Scene();
+    let renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#moon"),
+      antialias: true,
+      alpha: true,
+    });
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let cameras_m = new THREE.PerspectiveCamera(40, 1);
+    cameras_m.position.set(0, 0, 450);
+
+    // let lights = new THREE.DirectionalLight(0xffff00, 10);
+    // scene.add(lights);
+    let hemisphereLight = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      0.5
+    );
+    scene.add(hemisphereLight);
+    let loaders_m = new GLTFLoader();
+    loaders_m.load("../src/moon/scene.gltf", function (gltf) {
+      scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        renderer.render(scene, cameras_m);
+      }
+      animate();
+    });
+    //mars
+    let mars_scene = new THREE.Scene();
+    let mars_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#mars"),
+      antialias: true,
+      alpha: true,
+    });
+    mars_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let mars_camera = new THREE.PerspectiveCamera(12, 1);
+    mars_camera.position.set(0, 0, 1300);
+    mars_camera.rotation.set(0, 0, 0.2);
+
+    let hemisphereLight_mars = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      5
+    );
+    mars_scene.add(hemisphereLight_mars);
+    let lights = new THREE.DirectionalLight(0xffffffff, 2);
+    mars_scene.add(lights);
+
+    let mars_loader = new GLTFLoader();
+    mars_loader.load("../src/mars/scene.gltf", function (gltf) {
+      mars_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        mars_renderer.render(mars_scene, mars_camera);
+      }
+      animate();
+    });
+    //jupiter
+    let jup_scene = new THREE.Scene();
+    let jup_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#jupiter"),
+      antialias: true,
+      alpha: true,
+    });
+    jup_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let jup_camera = new THREE.PerspectiveCamera(25, 1);
+    jup_camera.position.set(0, 0, 17);
+    jup_camera.rotation.set(0, 0, 0);
+
+    let hemisphereLight_jupiter = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      0.5
+    );
+    jup_scene.add(hemisphereLight_jupiter);
+
+    let jup_loader = new GLTFLoader();
+    jup_loader.load("../src/jupiter/scene.gltf", function (gltf) {
+      jup_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        jup_renderer.render(jup_scene, jup_camera);
+      }
+      animate();
+    });
+    let saturn_scene = new THREE.Scene();
+    let saturn_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#saturn"),
+      antialias: true,
+      alpha: true,
+    });
+    saturn_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let saturn_camera = new THREE.PerspectiveCamera(16, 1);
+    saturn_camera.position.set(0, 0, 5);
+    saturn_camera.rotation.set(0, 0, 0.2);
+
+    let hemisphereLight_saturn = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      0.5
+    );
+    saturn_scene.add(hemisphereLight_saturn);
+
+    let saturn_loader = new GLTFLoader();
+    saturn_loader.load("../src/saturn/scene.gltf", function (gltf) {
+      saturn_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        saturn_renderer.render(saturn_scene, saturn_camera);
+      }
+      animate();
+    });
+    let uranus_scene = new THREE.Scene();
+    let uranus_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#uranus"),
+      antialias: true,
+      alpha: true,
+    });
+    uranus_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let uranus_camera = new THREE.PerspectiveCamera(9, 1);
+    uranus_camera.position.set(0, 0, 5);
+    uranus_camera.rotation.set(0, 0, 0);
+
+    let hemisphereLight_uranus = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      0.5
+    );
+    uranus_scene.add(hemisphereLight_uranus);
+
+    let uranus_loader = new GLTFLoader();
+    uranus_loader.load("../src/uranus/scene.gltf", function (gltf) {
+      uranus_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.x += 0.01;
+        uranus_renderer.render(uranus_scene, uranus_camera);
+      }
+      animate();
+    });
+    //neptune
+    let nep_scene = new THREE.Scene();
+    let nep_renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#neptune"),
+      antialias: true,
+      alpha: true,
+    });
+    nep_renderer.outputEncoding = THREE.sRGBEncoding;
+
+    let nep_camera = new THREE.PerspectiveCamera(55, 1);
+    nep_camera.position.set(0, 0, 2000);
+    nep_camera.rotation.set(0, 0, 0.2);
+
+    let hemisphereLight_neptune = new THREE.HemisphereLight(
+      0xffffffff,
+      0xccccccff,
+      0.5
+    );
+    nep_scene.add(hemisphereLight_neptune);
+
+    let nep_loader = new GLTFLoader();
+    nep_loader.load("../src/neptune/scene.gltf", function (gltf) {
+      nep_scene.add(gltf.scene);
+      function animate() {
+        requestAnimationFrame(animate);
+        gltf.scene.rotation.y += 0.01;
+        nep_renderer.render(nep_scene, nep_camera);
+      }
+      animate();
+    });
+  </script>
   <style>
     .pos-abs {
       position: absolute;
@@ -119,14 +565,15 @@
     }
     .mod {
       position: absolute;
+      display: none;
       z-index: 100;
       left: calc(50% - 30vw);
       width: 60vw;
-      height: 100vh;
-      background-color: tomato;
+      background-color: rgb(194, 194, 194);
       border-radius: 30px;
       transition: all 0.2s ease-in-out;
       opacity: 1;
+      padding: 50px;
     }
   </style>
 </html>
